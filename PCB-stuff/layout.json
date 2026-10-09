@@ -1,0 +1,418 @@
+{
+  "board": {
+    "width_mm": 45,
+    "height_mm": 40,
+    "origin": "top-left",
+    "x_axis": "right",
+    "y_axis": "down",
+    "source": "Edge.Cuts gr_rect, absolute (62.5,60) to (107.5,100) in the pcb file"
+  },
+  "keepouts": [
+    {
+      "name": "antenna_keepout",
+      "rectangle": {
+        "x1": 0,
+        "y1": -0.1,
+        "x2": 13.2,
+        "y2": 5.3
+      },
+      "reason": "U4's ESP32-C3-MINI-1 footprint carries its own \"antenna keepout\" zone (polygon in the pcb file, absolute (62.5,59.9)-(75.7,65.3)), already flush with the board's top and left edges. 0mm overhang beyond this zone is a PLACEHOLDER - the Espressif datasheet is the authority on required clearance, not this file. The y1=-0.1 is the zone's own geometry bleeding 0.1mm past the drawn edge; not something I added.\n"
+    }
+  ],
+  "groups": [
+    {
+      "name": "mcu",
+      "description": "ESP32-C3-MINI-1, the reference every other group's nets lead back to.",
+      "members": [
+        "U4"
+      ]
+    },
+    {
+      "name": "regulator",
+      "description": "U3 (AP2112K 3.3V LDO) and its caps. No cap exists on its VIN net (/VBAT_SW) in the file - only an output cap.",
+      "members": [
+        "U3",
+        "C4",
+        "SW1"
+      ]
+    },
+    {
+      "name": "charger",
+      "description": "U2 (MCP73831), its caps, its PROG resistor, D1 (STAT LED) and D1's resistor. J2 (battery connector) added here - its nets (/VBAT, GND) land directly on U2 pin 3.",
+      "members": [
+        "U2",
+        "C2",
+        "C3",
+        "R5",
+        "D1",
+        "R4",
+        "J2"
+      ]
+    },
+    {
+      "name": "usb",
+      "description": "J1 (USB-C) and the two CC resistors.",
+      "members": [
+        "J1",
+        "R2",
+        "R3"
+      ]
+    },
+    {
+      "name": "esp32_support",
+      "description": "EN pull-up, EN cap, SW6 (RESET), SW7 (BOOT), GPIO2 pull-up, GPIO8 pull-up, 3V3 caps.",
+      "members": [
+        "R10",
+        "C8",
+        "SW6",
+        "SW7",
+        "R12",
+        "R11",
+        "C6",
+        "C7"
+      ]
+    },
+    {
+      "name": "sensing",
+      "description": "Battery divider (R8/R9) and its cap (C1), on /VBAT_SENSE, near U4 GPIO3 (pad 6).",
+      "members": [
+        "R8",
+        "R9",
+        "C1"
+      ]
+    },
+    {
+      "name": "display",
+      "description": "J3 (OLED header), near U4's SDA/SCL pins (pads 18/19).",
+      "members": [
+        "J3"
+      ]
+    },
+    {
+      "name": "user_io",
+      "description": "SW2 (BTN2), SW5 (BTN1), D2 (debug LED) and its resistor.",
+      "members": [
+        "SW2",
+        "SW5",
+        "D2",
+        "R1"
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "reference": "U4",
+      "group": "mcu",
+      "x": 6.6,
+      "y": 8.2,
+      "rotation": 0,
+      "side": "top",
+      "reason": "Unchanged from file. Antenna end already flush with the top-left keepout corner."
+    },
+    {
+      "reference": "U3",
+      "group": "regulator",
+      "x": 10,
+      "y": 30,
+      "rotation": 0,
+      "side": "top",
+      "reason": "Was off-board (abs x=120.9, outside the 45mm-wide outline). Placed near SW1/its own output cap; no VIN-side net ties it elsewhere on the board."
+    },
+    {
+      "reference": "C4",
+      "group": "regulator",
+      "x": 12,
+      "y": 29,
+      "rotation": 0,
+      "side": "top",
+      "near": {
+        "reference": "U3",
+        "pin": "VOUT (pad 5)"
+      },
+      "reason": "1uF, matches AP2112K's recommended output cap value - placed at U3 pin 5 (+3V3), ~1mm off exact pad center."
+    },
+    {
+      "reference": "SW1",
+      "group": "regulator",
+      "x": 4.5,
+      "y": 38.17,
+      "rotation": 0,
+      "side": "top",
+      "reason": "Unchanged from file. Already at the bottom edge, reachable, per fixed design intent. Its nets (/VBAT, /VBAT_SW) are the regulator's input path."
+    },
+    {
+      "reference": "U2",
+      "group": "charger",
+      "x": 28,
+      "y": 23,
+      "rotation": 0,
+      "side": "top",
+      "reason": "Was off-board (abs x=120.8). Placed between its existing on-board neighbors: D1/R4 (STAT path, y=15.5) and R5 (PROG, y=30.5)."
+    },
+    {
+      "reference": "C3",
+      "group": "charger",
+      "x": 25.5,
+      "y": 23,
+      "rotation": 0,
+      "side": "top",
+      "near": {
+        "reference": "U2",
+        "pin": "VBAT (pad 3)"
+      },
+      "reason": "On /VBAT with GND, same net as U2 pin 3. Placed left of U2 at that pin's side."
+    },
+    {
+      "reference": "C2",
+      "group": "charger",
+      "x": 30.5,
+      "y": 23,
+      "rotation": 0,
+      "side": "top",
+      "near": {
+        "reference": "U2",
+        "pin": "VBUS (pad 4)"
+      },
+      "reason": "On VBUS with GND, same net as U2 pin 4. Placed right of U2 at that pin's side."
+    },
+    {
+      "reference": "R5",
+      "group": "charger",
+      "x": 18.175,
+      "y": 30.5,
+      "rotation": 0,
+      "side": "top",
+      "near": {
+        "reference": "U2",
+        "pin": "PROG (pad 5)"
+      },
+      "reason": "Unchanged from file. Sets charge current from U2 pin 5; no touching requirement for resistors in the design intent, left as-is."
+    },
+    {
+      "reference": "D1",
+      "group": "charger",
+      "x": 32.7875,
+      "y": 15.5,
+      "rotation": 0,
+      "side": "top",
+      "reason": "Unchanged from file. STAT LED, cathode net matches U2 pin 1."
+    },
+    {
+      "reference": "R4",
+      "group": "charger",
+      "x": 23.175,
+      "y": 30.5,
+      "rotation": 0,
+      "side": "top",
+      "reason": "Unchanged from file. D1's series resistor, anode side to VBUS."
+    },
+    {
+      "reference": "J2",
+      "group": "charger",
+      "x": 1.5,
+      "y": 24,
+      "rotation": 90,
+      "side": "top",
+      "reason": "Unchanged from file. Left edge, open space to the left per fixed design intent; feeds U2 pin 3 (VBAT) directly."
+    },
+    {
+      "reference": "J1",
+      "group": "usb",
+      "x": 39.68,
+      "y": 5.45,
+      "rotation": 0,
+      "side": "top",
+      "reason": "Unchanged from file. Connector mouth already at the right edge per fixed design intent."
+    },
+    {
+      "reference": "R2",
+      "group": "usb",
+      "x": 33.175,
+      "y": 30.5,
+      "rotation": 0,
+      "side": "top",
+      "reason": "Unchanged from file. CC1 resistor; no touching requirement for resistors."
+    },
+    {
+      "reference": "R3",
+      "group": "usb",
+      "x": 28.175,
+      "y": 30.5,
+      "rotation": 0,
+      "side": "top",
+      "reason": "Unchanged from file. CC2 resistor."
+    },
+    {
+      "reference": "R10",
+      "group": "esp32_support",
+      "x": 25.675,
+      "y": 36,
+      "rotation": 0,
+      "side": "top",
+      "reason": "Unchanged from file. EN pull-up to +3V3."
+    },
+    {
+      "reference": "C8",
+      "group": "esp32_support",
+      "x": 0.8,
+      "y": 19,
+      "rotation": 90,
+      "side": "top",
+      "near": {
+        "reference": "U4",
+        "pin": "EN/CHIP_PU (pad 8)"
+      },
+      "reason": "EN cap to GND. U4 pad 8 sits on the module's LEFT edge, only 0.7mm from the board's left edge with the module's body filling the rest of that column down to y=15.8 - there is no space directly beside this pad. Placed as close as physically possible, just below U4's bottom-left corner. True zero-gap touch is not achievable without moving U4 off the antenna corner - flagging this, not papering over it."
+    },
+    {
+      "reference": "SW6",
+      "group": "esp32_support",
+      "x": 19.5,
+      "y": 15.5,
+      "rotation": 0,
+      "side": "top",
+      "reason": "Unchanged from file. RESET, pulls EN to GND."
+    },
+    {
+      "reference": "SW7",
+      "group": "esp32_support",
+      "x": 11.5,
+      "y": 18.5,
+      "rotation": 0,
+      "side": "top",
+      "reason": "Was off-board (abs x=114). Placed in the open pocket directly below U4, close to its own pad 23 (GPIO9)."
+    },
+    {
+      "reference": "R12",
+      "group": "esp32_support",
+      "x": 15.675,
+      "y": 36,
+      "rotation": 0,
+      "side": "top",
+      "reason": "Unchanged from file. GPIO2 pull-up to +3V3 (strapping pin, per the earlier firmware work's GPIO2 restriction)."
+    },
+    {
+      "reference": "R11",
+      "group": "esp32_support",
+      "x": 20.675,
+      "y": 36,
+      "rotation": 0,
+      "side": "top",
+      "reason": "Unchanged from file. GPIO8 pull-up to +3V3 (also a strapping pin)."
+    },
+    {
+      "reference": "C6",
+      "group": "esp32_support",
+      "x": 0.8,
+      "y": 23,
+      "rotation": 90,
+      "side": "top",
+      "near": {
+        "reference": "U4",
+        "pin": "3V3 (pad 3)"
+      },
+      "reason": "10uF bulk cap on +3V3. Same left-edge-clearance problem as C8 - see that part's reason. Stacked furthest from U4 since it's the bulk cap, not the fast bypass cap."
+    },
+    {
+      "reference": "C7",
+      "group": "esp32_support",
+      "x": 0.8,
+      "y": 21,
+      "rotation": 90,
+      "side": "top",
+      "near": {
+        "reference": "U4",
+        "pin": "3V3 (pad 3)"
+      },
+      "reason": "100nF bypass cap on +3V3 - stacked closest to U4's pad 3 of the two 3V3 caps, since a small bypass cap wants to be nearest the pin. Same left-edge-clearance caveat as C8."
+    },
+    {
+      "reference": "R8",
+      "group": "sensing",
+      "x": 35.675,
+      "y": 36,
+      "rotation": 0,
+      "side": "top",
+      "near": {
+        "reference": "U4",
+        "pin": "GPIO3/ADC1_CH3 (pad 6)"
+      },
+      "reason": "Unchanged from file. Top half of the battery divider (/VBAT_SW to /VBAT_SENSE)."
+    },
+    {
+      "reference": "R9",
+      "group": "sensing",
+      "x": 30.675,
+      "y": 36,
+      "rotation": 0,
+      "side": "top",
+      "near": {
+        "reference": "U4",
+        "pin": "GPIO3/ADC1_CH3 (pad 6)"
+      },
+      "reason": "Unchanged from file. Bottom half of the divider (/VBAT_SENSE to GND)."
+    },
+    {
+      "reference": "C1",
+      "group": "sensing",
+      "x": 0.8,
+      "y": 17,
+      "rotation": 90,
+      "side": "top",
+      "near": {
+        "reference": "U4",
+        "pin": "GPIO3/ADC1_CH3 (pad 6)"
+      },
+      "reason": "Filter cap on /VBAT_SENSE to GND, same net as U4 pad 6 (GPIO3). Same left-edge-clearance problem as C8/C6/C7 - pad 6 is also on U4's left castellated edge. Placed closest to the actual pad of the four left-edge caps."
+    },
+    {
+      "reference": "J3",
+      "group": "display",
+      "x": 13,
+      "y": 22.5,
+      "rotation": 0,
+      "side": "top",
+      "near": {
+        "reference": "U4",
+        "pin": "SDA/SCL (pads 18/19)"
+      },
+      "reason": "Unchanged from file. ~9mm from U4's SDA/SCL pins (pads 18/19 at x=6.6-7.4, y=15.8) - not touching, but a 4-pin header doesn't need to touch; this is the nearest open spot below U4's bottom edge that isn't already claimed by the sensing-cap stack."
+    },
+    {
+      "reference": "SW2",
+      "group": "user_io",
+      "x": 6.5,
+      "y": 18.5,
+      "rotation": 0,
+      "side": "top",
+      "reason": "Was off-board (abs x=114.3). Placed in the open pocket below U4, close to its own pad 21 (GPIO7/BTN2), next to SW7."
+    },
+    {
+      "reference": "SW5",
+      "group": "user_io",
+      "x": 27,
+      "y": 15.5,
+      "rotation": 0,
+      "side": "top",
+      "reason": "Unchanged from file. BTN1."
+    },
+    {
+      "reference": "D2",
+      "group": "user_io",
+      "x": 39,
+      "y": 15,
+      "rotation": 0,
+      "side": "top",
+      "reason": "Unchanged from file. Debug LED, cathode to GND."
+    },
+    {
+      "reference": "R1",
+      "group": "user_io",
+      "x": 34.675,
+      "y": 26,
+      "rotation": 0,
+      "side": "top",
+      "reason": "Unchanged from file. D2's series resistor to U4 pad 16 (GPIO10/LED_DBG); no touching requirement for resistors."
+    }
+  ]
+}
