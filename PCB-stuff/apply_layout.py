@@ -13,9 +13,9 @@ import os
 
 import pcbnew
 
-INPUT_BOARD = r"glance-pcb.kicad_pcb"
-LAYOUT_FILE = r"layout.json"
-OUTPUT_BOARD = r"glance-pcb-placed.kicad_pcb"
+INPUT_BOARD = r""C:\Users\uromba\OneDrive - McGill University\glance-pcb\.history\glance-pcb.kicad_pcb""
+LAYOUT_FILE = r""C:\Users\uromba\OneDrive - McGill University\glance-pcb\placement\layout.json""
+OUTPUT_BOARD = r""C:\Users\uromba\OneDrive - McGill University\glance-pcb\.history\glance-pcb-placed.kicad_pcb""
 DRY_RUN = True  # True = print summary only, write nothing
 
 if os.path.realpath(INPUT_BOARD) == os.path.realpath(OUTPUT_BOARD):
