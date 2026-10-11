@@ -13,11 +13,10 @@
 | Part | What it's for | Qty | Unit | Total | Vendor |
 | --- | --- | --- | --- | --- | --- |
 | [ESP32-S3-WROOM-1-N16R8 Wi-Fi/BLE module](https://www.lcsc.com/product-detail/C2913202.html) | — | 1 | $5.20 | $5.20 | [LCSC](https://www.lcsc.com/product-detail/C2913202.html) |
-| [PT334-6B 940nm phototransistor 5mm (eye module)](https://www.lcsc.com/product-detail/C369188.html) | — | 1 | $0.06 | $0.06 | [LCSC](https://www.lcsc.com/product-detail/C369188.html) |
 | [IR333-A 940nm IR LED 5mm (eye module)](https://www.lcsc.com/product-detail/C264290.html) | — | 1 | $0.06 | $0.06 | [LCSC](https://www.lcsc.com/product-detail/C264290.html) |
 | [Bare PCB, 2-layer, 5 pcs (glance-board2)](https://jlcpcb.com) | bare pcbs | 1 | $4.00 | $4.00 | [JLCPCB](https://jlcpcb.com) |
-| **Parts subtotal** | — | — | — | **$9.32** | — |
+| **Parts subtotal** | — | — | — | **$9.26** | — |
 | **Tax & shipping** | — | — | — | **$20.70** | — |
-| **Total** | — | — | — | **$30.02** | — |
+| **Total** | — | — | — | **$29.96** | — |
 
-**$0.02 over the tier's funding.** Every tier gives a fixed amount for parts, so this needs cutting back or a higher tier.
+$0.04 left of the tier's funding.
