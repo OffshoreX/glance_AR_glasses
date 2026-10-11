@@ -22,7 +22,6 @@
 | [B3U-1000P SMD tactile switch](https://www.lcsc.com/product-detail/C231329.html) | — | 1 | $0.19 | $0.19 | [LCSC](https://www.lcsc.com/product-detail/C231329.html) |
 | [PT334-6B 940nm phototransistor 5mm (eye module)](https://www.lcsc.com/product-detail/C369188.html) | — | 1 | $0.06 | $0.06 | [LCSC](https://www.lcsc.com/product-detail/C369188.html) |
 | [IR333-A 940nm IR LED 5mm (eye module)](https://www.lcsc.com/product-detail/C264290.html) | — | 1 | $0.06 | $0.06 | [LCSC](https://www.lcsc.com/product-detail/C264290.html) |
-| LCSC cart price difference vs list prices | — | 1 | $0.00 | $0.00 | LCSC |
 | [Bare PCB, 2-layer, 5 pcs (glance-board2)](https://jlcpcb.com) | — | 1 | $0.00 | $0.00 | [JLCPCB](https://jlcpcb.com) |
 | **Parts subtotal** | — | — | — | **$9.28** | — |
 | **Tax & shipping** | — | — | — | **$0.00** | — |
