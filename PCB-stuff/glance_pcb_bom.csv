@@ -1,0 +1,16 @@
+Part,Designators,Qty used,Qty ordered,Unit price (USD),Total (USD),Vendor,Vendor part #,Link
+ESP32-S3-WROOM-1-N16R8 Wi-Fi/BLE module,U4,1,1,5.1956,5.20,LCSC,C2913202,https://www.lcsc.com/product-detail/C2913202.html
+ADS1115IDGSR 16-bit ADC (VSSOP-10),U1,1,1,1.2332,1.23,LCSC,C37593,https://www.lcsc.com/product-detail/C37593.html
+MCP73831T-2ACI/OT Li-ion charger (SOT-23-5),U2,1,1,0.7905,0.79,LCSC,C424093,https://www.lcsc.com/product-detail/C424093.html
+AP2112K-3.3 LDO regulator (SOT-23-5),U3,1,5,0.0756,0.38,LCSC,C22365427,https://www.lcsc.com/product-detail/C22365427.html
+TYPE-C-31-M-12 USB-C receptacle,J1,1,5,0.1729,0.86,LCSC,C165948,https://www.lcsc.com/product-detail/C165948.html
+S2B-PH-K-S JST PH 2-pin battery connector,J2,1,5,0.2222,1.11,LCSC,C157932,https://www.lcsc.com/product-detail/C157932.html
+PCM12SMTR SPDT slide switch,SW1,1,1,1.2754,1.28,LCSC,C221841,https://www.lcsc.com/product-detail/C221841.html
+B3U-1000P SMD tactile switch,SW2-SW5,4,5,0.1885,0.94,LCSC,C231329,https://www.lcsc.com/product-detail/C231329.html
+PT334-6B 940nm phototransistor 5mm (eye module),PT_L_A PT_L_B PT_R_A PT_R_B,4,10,0.0571,0.57,LCSC,C369188,https://www.lcsc.com/product-detail/C369188.html
+IR333-A 940nm IR LED 5mm (eye module),IR_LED_L IR_LED_R,2,10,0.0557,0.56,LCSC,C264290,https://www.lcsc.com/product-detail/C264290.html
+LCSC cart price difference vs list prices,,,,,-0.74,LCSC,,
+LCSC merchandise discount,,,,,-0.10,LCSC,,
+"Bare PCB, 2-layer, 5 pcs (glance-board2)",PCB,1,5,,4.00,JLCPCB,,https://jlcpcb.com
+Tax and shipping: JLCPCB 6.06 + LCSC shipping 11.64 + LCSC handling 3.00,,,,,20.70,JLCPCB + LCSC,,
+TOTAL,,,,,36.78,,,
