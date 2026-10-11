@@ -45,11 +45,11 @@
     [ "oled1:SCL", "esp:5", "green", [ "v-19.2", "h57.9", "v201.6" ] ],
     [ "esp:GND.6", "btn2:2.l", "black", [ "v0" ] ],
     [ "btn2:1.r", "esp:7", "green", [ "v0" ] ],
-    [ "esp:GND.8", "btn1:1.r", "black", [ "h37.12", "v-19.2", "h153.6", "v-9.4" ] ],
-    [ "btn1:1.l", "esp:6", "green", [ "h-19.2", "v-28.8" ] ],
     [ "led1:A", "esp:10", "green", [ "h9.6", "v-9.6" ] ],
     [ "led1:C", "r1:1", "green", [ "v0" ] ],
-    [ "r1:2", "esp:GND.5", "green", [ "h28.8", "v-10.8" ] ]
+    [ "r1:2", "esp:GND.5", "green", [ "h28.8", "v-10.8" ] ],
+    [ "esp:GND.6", "btn1:1.l", "black", [ "v19.2", "h209.92" ] ],
+    [ "esp:6", "btn1:2.r", "green", [ "h27.52", "v-57.6", "h201.4" ] ]
   ],
   "dependencies": {}
 }

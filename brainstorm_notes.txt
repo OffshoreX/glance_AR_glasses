@@ -1,0 +1,60 @@
+Notes section for AR glasses (Glance):
+- PCB design is measured in Hack Club Half Life program
+- Code for AR glass is recorded in Hack Club Terra program
+
+Planning section:
+- next worksession in MD 50 on Kicad or something like 'circuito.io' or 'wokwi.com' if I can
+rely only on prefabricated parts
+- pair this session with simultaneous code session on MAC (kicad stuff on MD 50 computer)
+
+########################################################################
+
+Wokwi (build this today): (in progress)
+- ESP32-C3 DevKit board (added)
+- SSD1306 OLED (Wokwi’s part defaults to 128x64, while your real 0.91" 
+module is 128x32, so keep screen width and height as constants in your code) (added) 
+- Two pushbuttons (added)
+- One LED with a 330 ohm resistor
+
+        Wiring for Wokwi SIM:
+            OLED (4 wires) #WIRED
+                GND to any GND pin
+                VCC to 3V3 (top left of the board)
+                SDA to GPIO4 (right side)
+                SCL to GPIO5 (right side)
+
+            Buttons (2 wires each) # WIRED
+                Button 1: one pin to GPIO6, the other to GND
+                Button 2: one pin to GPIO7, the other to GND
+                Wokwi buttons tie the two left pins together and the two right pins together internally. Use one left pin and one right pin, not two on the same side.
+                No external resistors needed. Enable the internal pull-up in code with INPUT_PULLUP, so a pressed button reads LOW.
+
+            Debug LED (3 connections) # WIRED
+                GPIO10 to one end of the resistor
+                Other end of the resistor to the LED anode (the bent leg, which Wokwi labels A when you hover)
+                LED cathode to GND
+
+            Leave unconnected
+                GPIO3 is reserved for the battery ADC, so don’t use it yet
+                GPIO2, GPIO8, and GPIO9 are strapping pins, so keep them free
+
+#################################################################################
+
+PCB only (KiCad, no Wokwi equivalent)
+- ESP32-C3-MINI-1 module
+- USB-C connector
+- 2x 5.1k resistors (CC1, CC2)
+- MCP73831 charger plus its programming resistor
+- AP2112K-3.3 LDO (600mA)
+- Input and output caps for the LDO and charger
+- 10uF and 100nF decoupling caps at the ESP32
+- 2x 4.7k I2C pull-ups
+- EN and BOOT buttons plus a small cap on EN
+- JST-PH 2-pin battery connector
+- Slide switch on the battery line
+- Battery voltage divider (two resistors) into GPIO3
+- Charger STAT LED
+- Debug LED on GPIO10
+- 4-pin OLED header (3.3V, GND, SDA, SCL)
+
+

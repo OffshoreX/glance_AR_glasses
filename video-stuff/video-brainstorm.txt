@@ -1,0 +1,23 @@
+IDEA REEL:
+
+Things to include:
+    - inspiration
+        - ironman
+        - clone HUDs from star wars 
+        - different visors
+        - google glasses
+        - meta glasses
+    - Planning
+        - explain how the biggest limiting factor is the lens physics
+        - how I'm focusing on the basic PCB elements for now, and working towards 
+making eveyrhting smaller to fitting in glasses
+
+
+5HR PROGRESS REEL:
+
+Things to include:
+    - different steps I took
+        - wokwi
+        - schematic
+        - footnotes
+        - PCB

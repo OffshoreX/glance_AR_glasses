@@ -1,0 +1,8 @@
+All previous notes from schematic stage were deleted
+
+Thoughts on that stage:
+    - followed the steps relatively nicely
+    - slight hiccup with the specific ESP32 module that should've been placed
+        - this required downloading a seperate library that contianed the specific 
+'ESP32-C3_MINI-1' that was required
+    - 
