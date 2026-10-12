@@ -2,3 +2,9 @@
 software-prototype/.venv/
 __pycache__/
 *.pyc
+.DS_Store
+*.lck
+.claude/
+PCB-stuff/espressif-kicad-addon.zip
+PCB-stuff/host/
+_autosave-*
