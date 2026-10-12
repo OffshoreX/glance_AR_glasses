@@ -1,6 +1,6 @@
 # GLANCE: Autofocal Reading Glasses (Board 2)
 
-![GLANCE Board 2 cover](hardware/images/cover.png)
+<img width="1264" height="616" alt="glance-board2" src="https://github.com/user-attachments/assets/fb5e3ef2-3c1e-4a58-a717-0992a8c9d560" />
 
 GLANCE started as AR smart glasses and became a sensing platform for **autofocal reading glasses**. An outward-facing distance sensor measures how far away the object in front of you is. Two inward-facing infrared eye sensors estimate where your eyes are pointing. Together they estimate the distance you are actually looking at, which is the signal a focus-tunable lens would need to adjust itself. The lens itself is out of scope for this project. This repo covers the electronics that do the sensing.
 
@@ -16,12 +16,14 @@ GLANCE started as AR smart glasses and became a sensing platform for **autofocal
 
 ## Images
 
-| | |
-|---|---|
-| ![Schematic](hardware/images/schematic.png) | ![PCB layout](hardware/images/pcb-layout.png) |
-| Schematic | PCB layout (routed) |
-| ![3D front](hardware/images/pcb-3d-front.png) | ![3D back](hardware/images/pcb-3d-back.png) |
-| 3D view, front | 3D view, back |
+**Schematic:**
+<img width="934" height="663" alt="Screenshot 2026-10-10 at 22 06 13" src="https://github.com/user-attachments/assets/393a2d65-3b3f-4793-9506-be3c27a23eca" />
+
+**Before placing and routing:**
+<img width="683" height="630" alt="Screenshot 2026-10-11 at 13 06 16" src="https://github.com/user-attachments/assets/ab769acd-1b19-41cf-8cb0-7aaacddbe979" />
+
+**After:**
+<img width="1092" height="765" alt="Screenshot 2026-10-11 at 18 39 17" src="https://github.com/user-attachments/assets/d409f28b-7835-4e9f-87b0-371f6d05b18e" />
 
 ## Board
 
@@ -58,7 +60,3 @@ Board 2 firmware has not been written yet. The existing code in `firmware/` targ
 1. Receive the boards and check continuity with a multimeter before powering up.
 2. Solder, then bring up power, USB and the ADC.
 3. Read the eye sensors and the distance sensor, then estimate gaze distance.
-
-## License
-
-Add a license of your choice.
